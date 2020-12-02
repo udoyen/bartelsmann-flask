@@ -1,5 +1,17 @@
 # To give podman access to google cloud registry
 gcloud auth print-access-token | sudo podman login -u oauth2accesstoken --password-stdin gcr.io
 
-# Pushes the image to google in docker format
+# Command to build image with docker (use 'sudo' if you system requires it!)
+docker build -t gcr.io/<google-project-id>/cloudrun-test:v<any-number> .
+
+# Command to build with podman
+sudo podman build -t gcr.io/<google-project-id>/cloudrun-test:v<any-number> .
+
+# Pushes the image to google in docker format using podman
 sudo podman push gcr.io/ace-demo-prep-proj/cloudrun-test:v4b --format docker --remove-signatures
+
+# Pushes the image to google using docker (use 'sudo' if you system requires it)
+docker push gcr.io/ace-demo-prep-proj/cloudrun-test:v4b
+
+# Command to deploy to cloud run
+gcloud run deploy flaskservice --platform managed --image="gcr.io/ace-demo-prep-proj/cloudrun-test:v4b"
