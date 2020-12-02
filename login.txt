@@ -1,0 +1,5 @@
+# To give podman access to google cloud registry
+gcloud auth print-access-token | sudo podman login -u oauth2accesstoken --password-stdin gcr.io
+
+# Pushes the image to google in docker format
+sudo podman push gcr.io/ace-demo-prep-proj/cloudrun-test:v4b --format docker --remove-signatures
