@@ -28,6 +28,7 @@ CORS(app)  # To allow direct AJAX calls
 
 # home page route and view, containing a dictionary thats rendered in the updates section
 @app.route('/')
+@app.route('/home')
 def Index():
 
     category = [
@@ -176,7 +177,7 @@ def subcribe():
     return render_template('subcribe.html')
 
 
-if __name__ == '__main__':
-
+if __name__ == "__main__":
     app.secret_key = "secret123"
-    app.run(debug=True, host='0.0.0.0', port=80)
+
+    app.run(host='localhost', port=3000, debug=True)
