@@ -32,4 +32,3 @@ jobs:
         app-name: 'helloworldkoko'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_c8aaee1dd7394d9f966852e53d91ea9e }}
-    - run: python main.py
