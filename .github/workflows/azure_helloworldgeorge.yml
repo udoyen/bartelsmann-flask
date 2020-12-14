@@ -6,7 +6,7 @@ name: Build and deploy Python app to Azure Web App - helloworldgeorge
 on:
   push:
     branches:
-      - main
+      - azure
 
 jobs:
   build-and-deploy:
@@ -31,4 +31,4 @@ jobs:
       with:
         app-name: 'helloworldgeorge'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_cb615157856942eab708f5767ae7ae71 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_65ba571befa84842947b63efa8e8248b }}
